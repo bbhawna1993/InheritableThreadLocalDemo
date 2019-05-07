@@ -1,6 +1,11 @@
 public class ParentThread extends Thread{
 
-	static ThreadLocal tl = new ThreadLocal();
+	static InheritableThreadLocal tl = new InheritableThreadLocal()
+	{
+
+		public Object childValue(Object p)
+		{return "abc";}
+	};
 
 	public void run()
 	{
